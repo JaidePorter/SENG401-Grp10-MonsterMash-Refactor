@@ -1,0 +1,1 @@
+This shows how the fight would take place at a slightly higher level than the actual algorithm. The dead monster would be passed back to the player(owner) who would send it off to get removed from the server.

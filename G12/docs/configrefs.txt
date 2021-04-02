@@ -1,0 +1,14 @@
+Config refs
+
+Project Plan: SE_G12_PP_00
+
+Test Specification:  SE_G12_PP_00
+
+Design Specification: SE_G12_DS_00
+
+Final Report: SE_G12_FR_00
+
+Maintneance Manual: SE_G12_MM_00
+
+Test Report: SE_G12_TR_00
+

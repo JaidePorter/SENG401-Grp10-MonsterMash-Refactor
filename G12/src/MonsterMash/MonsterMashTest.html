@@ -1,0 +1,184 @@
+<h3>Send a userID to /users</h3>
+<form action="http://144.124.4.24:8080/MonsterMash/users" method="get" id="uploadurl">
+        userID<input type="text" name="userID">
+        <input type="submit" name="submit">
+</form>
+
+<h3>Send a request to /users</h3>
+<form action="http://144.124.4.24:8080/MonsterMash/users" method="get" id="uploadurl">
+        <input type="submit" name="submit">
+</form>
+
+<h3>Send a userID to /monsters</h3>
+<form action="http://144.124.4.24:8080/MonsterMash/monsters" method="get" id="uploadurl">
+		userID<input type="text" name="userID">
+        <input type="submit" name="submit">
+</form>
+
+<h3>Send a monsterID to /monsters</h3>
+<form action="http://144.124.4.24:8080/MonsterMash/monsters" method="get" id="uploadurl">
+		monsterID<input type="text" name="monsterID">
+        <input type="submit" name="submit">
+</form>
+
+<h3>Send friend request</h3>
+<form action="http://144.124.4.24:8080/MonsterMash/friends/request" method="get" id="uploadurl">
+		friendID<input type="text" name="friendID">
+		remoteServerNumber<input type="text" name="remoteServerNumber">
+		localUserID<input type="text" name="localUserID">
+		remoteUserID<input type="text" name="remoteUserID">
+        <input type="submit" name="submit">
+</form>
+
+<h3>Accept friend request</h3>
+<form action="http://144.124.4.24:8080/MonsterMash/friends/accept" method="get" id="uploadurl">
+		friendID<input type="text" name="friendID">
+        <input type="submit" name="submit">
+</form>
+
+<h3>Reject friend request</h3>
+<form action="http://144.124.4.24:8080/MonsterMash/friends/reject" method="get" id="uploadurl">
+		friendID<input type="text" name="friendID">
+        <input type="submit" name="submit">
+</form>
+
+<h3>Send fight request</h3>
+<form action="http://144.124.4.24:8080/MonsterMash/fight/request" method="get" id="uploadurl">
+		fightID<input type="text" name="fightID">
+		localMonsterID<input type="text" name="localMonsterID">
+		remoteMonsterID<input type="text" name="remoteMonsterID">
+		remoteServerNumber<input type="text" name="remoteServerNumber">
+        <input type="submit" name="submit">
+</form>
+
+<h3>Win fight request</h3>
+<form action="http://144.124.4.24:8080/MonsterMash/fight/won" method="get" id="uploadurl">
+		fightID<input type="text" name="fightID">
+		strength<input type="text" name="strength">
+		defence<input type="text" name="defence">
+		health<input type="text" name="health">
+        <input type="submit" name="submit">
+</form>
+
+<h3>Lose fight request</h3>
+<form action="http://144.124.4.24:8080/MonsterMash/fight/lost" method="get" id="uploadurl">
+		fightID<input type="text" name="fightID">
+
+        <input type="submit" name="submit">
+</form>
+
+
+<h3>Reject fight request</h3>
+<form action="http://144.124.4.24:8080/MonsterMash/fight/reject" method="get" id="uploadurl">
+		fightID<input type="text" name="fightID">
+
+        <input type="submit" name="submit">
+</form>
+
+<h3>Breed</h3>
+<form action="http://144.124.4.24:8080/MonsterMash/breed" method="get" id="uploadurl">
+		monsterID<input type="text" name="monsterID">
+
+        <input type="submit" name="submit">
+</form>
+
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+
+<h1>RemoteTalker tests</h1>
+<h3>sendf</h3>
+<form action="http://144.124.4.24:8080/MonsterMash/api/test" method="get" id="uploadurl">
+		type<input type="text" name="type" value="sendf">
+        <input type="submit" name="submit">
+</form>
+<h3>reject</h3>
+<form action="http://144.124.4.24:8080/MonsterMash/api/test" method="get" id="uploadurl">
+		type<input type="text" name="type" value="reject">
+		friedID<input type="text" name="friendID" value="">
+        <input type="submit" name="submit">
+</form>
+
+<h3>accept</h3>
+<form action="http://144.124.4.24:8080/MonsterMash/api/test" method="get" id="uploadurl">
+		type<input type="text" name="type" value="accept">
+		friedID<input type="text" name="friendID" value="">
+        <input type="submit" name="submit">
+</form>
+
+<h3>monster</h3>
+<form action="http://144.124.4.24:8080/MonsterMash/api/test" method="get" id="uploadurl">
+		type<input type="text" name="type" value="monster">
+		monsterID<input type="text" name="monsterID" value="">
+        <input type="submit" name="submit">
+</form>
+
+<h3>monsters</h3>
+<form action="http://144.124.4.24:8080/MonsterMash/api/test" method="get" id="uploadurl">
+		type<input type="text" name="type" value="monsters">
+		userID<input type="text" name="userID" value="">
+        <input type="submit" name="submit">
+</form>
+
+<h3>user</h3>
+<form action="http://144.124.4.24:8080/MonsterMash/api/test" method="get" id="uploadurl">
+		type<input type="text" name="type" value="user">
+		userID<input type="text" name="userID" value="">
+        <input type="submit" name="submit">
+</form>
+
+<h3>fight request</h3>
+<form action="http://144.124.4.24:8080/MonsterMash/api/test" method="get" id="uploadurl">
+		type<input type="text" name="type" value="sendfr">
+		fightID<input type="text" name="fightID">
+		localMonsterID<input type="text" name="localMonsterID">
+		remoteMonsterID<input type="text" name="remoteMonsterID">
+		remoteServerNumber<input type="text" name="remoteServerNumber">
+		senderID<input type="text" name="senderID">
+		receiverID<input type="text" name="receiverID">
+        <input type="submit" name="submit">
+</form>
+
+<h3>fight won</h3>
+<form action="http://144.124.4.24:8080/MonsterMash/api/test" method="get" id="uploadurl">
+		type<input type="text" name="type" value="won">
+		fightID<input type="text" name="fightID">
+		localMonsterID<input type="text" name="localMonsterID">
+		remoteMonsterID<input type="text" name="remoteMonsterID">
+		remoteServerNumber<input type="text" name="remoteServerNumber">
+		senderID<input type="text" name="senderID">
+		receiverID<input type="text" name="receiverID">
+        <input type="submit" name="submit">
+</form>
+
+<h3>fight lost</h3>
+<form action="http://144.124.4.24:8080/MonsterMash/api/test" method="get" id="uploadurl">
+		type<input type="text" name="type" value="lost">
+		fightID<input type="text" name="fightID">
+		localMonsterID<input type="text" name="localMonsterID">
+		remoteMonsterID<input type="text" name="remoteMonsterID">
+		remoteServerNumber<input type="text" name="remoteServerNumber">
+		senderID<input type="text" name="senderID">
+		receiverID<input type="text" name="receiverID">
+        <input type="submit" name="submit">
+</form>
+
+<h3>fight reject</h3>
+<form action="http://144.124.4.24:8080/MonsterMash/api/test" method="get" id="uploadurl">
+		type<input type="text" name="type" value="rejectfr">
+		fightID<input type="text" name="fightID">
+		localMonsterID<input type="text" name="localMonsterID">
+		remoteMonsterID<input type="text" name="remoteMonsterID">
+		remoteServerNumber<input type="text" name="remoteServerNumber">
+		senderID<input type="text" name="senderID">
+		receiverID<input type="text" name="receiverID">
+        <input type="submit" name="submit">
+</form>

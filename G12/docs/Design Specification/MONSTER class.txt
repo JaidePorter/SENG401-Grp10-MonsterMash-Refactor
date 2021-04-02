@@ -1,0 +1,35 @@
+Monster - class containing information about a single monster. It is an abstract
+class that is used by Male class (for male monsters) and Female class (for female
+monsters). 
+Monster class contains following attributes: 
+#id:int - ID of the monster
+#name:String - name of the monster
+#dob:Date - monster's date of birth
+#genetic_stength:float - strength of the monster, used during breeding
+#strength:float - strength of the monster, used during fighting
+#speed:float - speed of the monster
+#accuracy:float - accuracy of the monster
+#endurance:float - endurance of the monster
+#armor:float - the strength of monster's armor
+#dodge:float - ability to dodge
+#age_rate:float - age rate of the monster, value in range 0..1
+#fertility:float - fertility of the monster
+#health:int - health of the monster, value in range 0..100
+
+Male - class containing information about a single male monster. It extends the
+Monster abstract class. 
+Male class contains following attributes: 
+-injured:boolean - true if monster is injured, otherwise false
+Male class contains following methods: 
++fight(opponent:Male):boolean - contains fighting algorithm. Takes the opponent
+monster as a parameter. Returns true if the monster starting the fight has won, otherwise returns
+false. 
+
+Female - class containing information about a single female monster. It extends the
+Monster abstract class. 
+Female class contains following attributes: 
+-MAX_MAXCHILDREN:final int - maximum number of children possible to achive in single
+breeding. This value is the same for every female. 
+Female class contains following methods: 
++breeding(monster:Male):Monster[] - contains breeding algorithm. Takes male monster
+as a parameter. Returns array of new monsters that are the result of breeding. 

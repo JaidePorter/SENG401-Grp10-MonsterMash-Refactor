@@ -1,0 +1,12 @@
+<<<<<<< HEAD
+G12/src/conf
+G12/src/nbproject
+G12/src/build.xml
+/nbproject/private/
+=======
+G12/src/conf
+G12/src/nbproject
+G12/src/build.xml
+/nbproject/private/
+>>>>>>> branch 'development' of https://github.com/DownGoat/MonsterMash.git
+/build/

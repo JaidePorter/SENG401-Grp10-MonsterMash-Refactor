@@ -1,0 +1,2 @@
+All the pages in the front-end use both the Persistence Manager and the HTTPServerlet. The PersistenceManager provides data for the webpages, and the HTTPServerlet serves the webpages to the web browser.
+
