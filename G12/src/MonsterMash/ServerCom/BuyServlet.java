@@ -42,7 +42,7 @@ public class BuyServlet extends HttpServlet {
         
         if(monsterID != null) {
             System.out.println("Buy request for monster"+monsterID);
-            OtherPersistenceManager pm = new OtherPersistenceManager();
+            OtherPersistenceManager pm = OtherPersistenceManager.getInstance();
             Monster monster = pm.getMonster(monsterID);
             
             if(monster != null ){
