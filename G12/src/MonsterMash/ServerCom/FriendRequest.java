@@ -46,7 +46,7 @@ public class FriendRequest extends HttpServlet {
         if (friendID == null || localUserID == null || remoteServerNumber == null || remoteUserID == null) {
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Bad request, invalid parameters for friend request.");
         } else {
-            OtherPersistenceManager pm = new OtherPersistenceManager();
+            OtherPersistenceManager pm = OtherPersistenceManager.getInstance();
             Player player = pm.getPlayer(localUserID);
 
             friend = new Friend(friendID, localUserID, remoteUserID, Integer.parseInt(remoteServerNumber), CONFIG.OUR_SERVER, "N");
