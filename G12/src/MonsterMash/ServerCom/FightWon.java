@@ -52,7 +52,7 @@ public class FightWon extends HttpServlet {
         }
         
         if (fightID != null) {
-            OtherPersistenceManager pm = new OtherPersistenceManager();
+            OtherPersistenceManager pm = OtherPersistenceManager.getInstance();
             FightRequest fr = pm.getFightRequest(fightID);
             
             if(fr != null) {
