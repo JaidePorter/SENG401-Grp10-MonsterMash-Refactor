@@ -101,8 +101,12 @@ public class RemoteTalker {
             return null;
         }
         JSONObject json = new JSONObject(body);
-
-        monster = new Monster();
+        ArrayList<Enum<Tier>> tiers = new ArrayList<Enum<Tier>>();
+        tiers.add(Tier.ONE);
+        tiers.add(Tier.TWO);
+        tiers.add(Tier.THREE);
+        int index = (int)(Math.random() * 3);
+        monster = MonsterFactory.getMonster(tiers.get(index));
         monster.setName(NameGenerator.getName());
         monster.setBaseStrength(json.getDouble("baseStrength"));
         monster.setCurrentStrength(json.getDouble("currentStrength"));
@@ -147,8 +151,12 @@ public class RemoteTalker {
         monsters = new ArrayList<Monster>();
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject json = jsonArray.getJSONObject(i);
-
-            Monster monster = new Monster();
+            ArrayList<Enum<Tier>> tiers = new ArrayList<Enum<Tier>>();
+            tiers.add(Tier.ONE);
+            tiers.add(Tier.TWO);
+            tiers.add(Tier.THREE);
+            int index = (int)(Math.random() * 3);
+            Monster monster = MonsterFactory.getMonster(tiers.get(index));
             monster.setBaseStrength(json.getDouble("baseStrength"));
             monster.setCurrentStrength(json.getDouble("currentStrength"));
             monster.setBaseDefence(json.getDouble("baseDefence"));

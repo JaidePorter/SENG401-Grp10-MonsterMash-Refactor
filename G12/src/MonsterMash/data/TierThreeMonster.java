@@ -73,13 +73,13 @@ public class TierThreeMonster implements Monster {
 	    this.dob = new Date();
         this.dod = new Date(dob.getTime()+LIFESPAN);
         Random random = new Random();
-        this.baseStrength = (double)(10 + r.nextDouble() * (100 - 10));
-        this.currentStrength = (double)(10 + r.nextDouble() * (100 - 10));
-        this.baseDefence = (double)(10 + r.nextDouble() * (100 - 10));
-        this.currentDefence = (double)(10 + r.nextDouble() * (100 - 10));
-        this.baseHealth = (double)(100 + r.nextDouble() * (1000 - 100));
-        this.currentHealth = (double)(100 + r.nextDouble() * (this.baseHealth - 100));
-	    this.fertility = (float)(0 + r.nextFloat() * (0.4 - 0));
+        this.baseStrength = (double)(10 + random.nextDouble() * (100 - 10));
+        this.currentStrength = (double)(10 + random.nextDouble() * (100 - 10));
+        this.baseDefence = (double)(10 + random.nextDouble() * (100 - 10));
+        this.currentDefence = (double)(10 + random.nextDouble() * (100 - 10));
+        this.baseHealth = (double)(100 + random.nextDouble() * (1000 - 100));
+        this.currentHealth = (double)(100 + random.nextDouble() * (this.baseHealth - 100));
+	    this.fertility = (float)(0 + random.nextFloat() * (0.4 - 0));
         this.userID = userID;
         this.saleOffer = 0;
         this.breedOffer = 0;
@@ -91,13 +91,13 @@ public class TierThreeMonster implements Monster {
 	    this.dob = new Date();
         this.dod = new Date(dob.getTime()+LIFESPAN);
         Random random = new Random();
-        this.baseStrength = (double)(10 + r.nextDouble() * (100 - 10));
-        this.currentStrength = (double)(10 + r.nextDouble() * (100 - 10));
-        this.baseDefence = (double)(10 + r.nextDouble() * (100 - 10));
-        this.currentDefence = (double)(10 + r.nextDouble() * (100 - 10));
-        this.baseHealth = (double)(100 + r.nextDouble() * (1000 - 100));
-        this.currentHealth = (double)(100 + r.nextDouble() * (this.baseHealth - 100));
-	    this.fertility = (float)(0 + r.nextFloat() * (0.4 - 0));
+        this.baseStrength = (double)(10 + random.nextDouble() * (100 - 10));
+        this.currentStrength = (double)(10 + random.nextDouble() * (100 - 10));
+        this.baseDefence = (double)(10 + random.nextDouble() * (100 - 10));
+        this.currentDefence = (double)(10 + random.nextDouble() * (100 - 10));
+        this.baseHealth = (double)(100 + random.nextDouble() * (1000 - 100));
+        this.currentHealth = (double)(100 + random.nextDouble() * (this.baseHealth - 100));
+	    this.fertility = (float)(0 + random.nextFloat() * (0.4 - 0));
         this.userID = userID;
         this.saleOffer = 0;
         this.breedOffer = 0;
@@ -128,51 +128,51 @@ public class TierThreeMonster implements Monster {
      */
     public Monster[] breeding(Monster other) {
         Random r = new Random(); 
-        int numberofchildren = (int) (Math.sqrt(fertility * other.fertility) * MAX_CHILDREN);
+        int numberofchildren = (int) (Math.sqrt(fertility * other.getFertility()) * MAX_CHILDREN);
     	Monster[] children = new Monster[numberofchildren + 1]; 
         for (int i = 0; i<= numberofchildren; i++){
-            children[i]=new Monster();
-            children[i].id = "0";
-            children[i].dob=new Date();
-            children[i].dod = new Date(children[i].dob.getTime()+LIFESPAN);
+            children[i]=new TierThreeMonster();
+            children[i].setId("0");
+            children[i].setDob(new Date());
+            children[i].setDod(new Date(children[i].getDob().getTime()+LIFESPAN));
             //this is assuming that the children go to the owner of the monster that calls the method
-            children[i].userID = this.userID; 
-            children[i].name = NameGenerator.getName();
+            children[i].setUserID(this.userID); 
+            children[i].setName(NameGenerator.getName());
             //generating inherited defense
             if(r.nextInt(100)<5){
-                 children[i].baseDefence=r.nextDouble();
+                 children[i].setBaseDefence(r.nextDouble());
             } else if(r.nextInt(100)<50){
-                 children[i].baseDefence=baseDefence;
+                 children[i].setBaseDefence(baseDefence);
             } else {
-                 children[i].baseDefence=other.baseDefence;
+                 children[i].setBaseDefence(other.getBaseDefence());
             }
-            children[i].currentDefence = children[i].baseDefence;
+            children[i].setCurrentDefence(children[i].getBaseDefence());
             //generating inherited strength
             if(r.nextInt(100)<5){
-                 children[i].baseStrength=r.nextDouble();
+                 children[i].setBaseStrength(r.nextDouble());
             }
             else if(r.nextInt(100)<50){
-                 children[i].baseStrength=baseStrength;
+                 children[i].setBaseStrength(baseStrength);
             } else {
-                 children[i].baseStrength=other.baseStrength;
+                 children[i].setBaseStrength(other.getBaseStrength());
             }
-            children[i].currentStrength = children[i].baseStrength;
+            children[i].setCurrentStrength(children[i].getBaseStrength());
             //generating inherited health
             if(r.nextInt(100)<5){
-                 children[i].baseHealth=r.nextDouble();
+                 children[i].setBaseHealth(r.nextDouble());
             }else if(r.nextInt(100)<50){
-                 children[i].baseHealth=baseHealth;
+                 children[i].setBaseHealth(baseHealth);
             } else {
-                 children[i].baseHealth=other.baseHealth;
+                 children[i].setBaseHealth(other.getBaseHealth());
             }
-            children[i].currentHealth = children[i].baseHealth;
+            children[i].setCurrentHealth(children[i].getBaseHealth());
             //generating inherited fertility
             if(r.nextInt(100)<5){
-                 children[i].fertility=r.nextFloat();
+                 children[i].setFertility(r.nextFloat());
             } else if(r.nextInt(100)<50){
-                 children[i].fertility=fertility;
+                 children[i].setFertility(fertility);
             } else {
-                children[i].fertility=other.fertility;
+                children[i].setFertility(other.getFertility());
             }
         }      
         return children;
@@ -310,19 +310,18 @@ public class TierThreeMonster implements Monster {
      * @return The opponent is returned with new stats..
      */
     public double fight(Monster opponent)
-    {
-        double playerInjuries = 0; 
+    { double playerInjuries = 0; 
         double opponentInjuries = 0; 
         
         Random randomGenerator = new Random(); 
         double random = randomGenerator.nextDouble(); 
         
-        while(this.currentHealth > 0 && opponent.currentHealth > 0) {
-            opponent.currentHealth -= this.currentStrength * (1-opponent.currentDefence) * random; 
-            this.currentHealth -= opponent.currentStrength * (1-this.currentDefence) * random; 
-            System.out.println("Player: " + this.currentHealth + "; Opponent: " + opponent.currentHealth);
+        while(this.currentHealth > 0 && opponent.getCurrentHealth() > 0) {
+            opponent.setCurrentHealth(opponent.getCurrentHealth() - this.currentStrength * (1-opponent.getCurrentDefence()) * random);
+            this.currentHealth -= opponent.getCurrentStrength() * (1-this.currentDefence) * random; 
+            System.out.println("Player: " + this.currentHealth + "; Opponent: " + opponent.getCurrentHealth());
         }
         
-        return opponent.currentHealth; 
+        return opponent.getCurrentHealth(); 
     }
 }
