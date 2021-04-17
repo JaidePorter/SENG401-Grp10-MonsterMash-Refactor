@@ -62,7 +62,13 @@ public class Player {
         this.notifications = new ArrayList<Notification>();
         this.monsters = new ArrayList<Monster>();
         this.serverID = CONFIG.OUR_SERVER;
-    	monsters.add(new Monster(initialMonsterName, this.userID));
+
+        ArrayList<Enum<Tier>> tiers = new ArrayList<Enum<Tier>>();
+        tiers.add(Tier.ONE);
+        tiers.add(Tier.TWO);
+        tiers.add(Tier.THREE);
+        int index = (int)(Math.random() * 3);
+        monsters.add(MonsterFactory.getMonster(tiers.get(index), initialMonsterName, this.userID));
         // Add first notifications:
         notifications.add(new Notification("Account created successfully.", "Welcome to MonsterMash, an interactive online learning"
                 + ", fun, multiplayer game. Add friends to your friends list by entering their email, and compete to "

@@ -262,7 +262,12 @@ public class PersistenceManager {
             Statement stmt = connection.createStatement();
             ResultSet r = stmt.executeQuery("SELECT * FROM \"Monster\" WHERE \"user_id\" = '"+playerID+"'");
             while(r.next()){
-                Monster monster = new Monster(r.getString("id"), r.getString("name"), new Date(r.getLong("dob")*1000), new Date(r.getLong("dod")*1000), r.getDouble("base_strength"), r.getDouble("current_strength"), r.getDouble("base_defence"), r.getDouble("current_defence"), r.getDouble("base_health"), r.getDouble("current_health"), r.getFloat("fertility"), r.getString("user_id"), r.getInt("sale_offer"), r.getInt("breed_offer"));
+                ArrayList<Enum<Tier>> tiers = new ArrayList<Enum<Tier>>();
+                tiers.add(Tier.ONE);
+                tiers.add(Tier.TWO);
+                tiers.add(Tier.THREE);
+                int index = (int)(Math.random() * 3);
+                Monster monster = MonsterFactory.getMonster(tiers.get(index), r.getString("id"), r.getString("name"), new Date(r.getLong("dob")*1000), new Date(r.getLong("dod")*1000), r.getDouble("base_strength"), r.getDouble("current_strength"), r.getDouble("base_defence"), r.getDouble("current_defence"), r.getDouble("base_health"), r.getDouble("current_health"), r.getFloat("fertility"), r.getString("user_id"), r.getInt("sale_offer"), r.getInt("breed_offer"));
                 monster.setServerID(CONFIG.OUR_SERVER);
                 monsters.add(monster);
             }
@@ -596,7 +601,12 @@ public class PersistenceManager {
                 Statement stmt = connection.createStatement();
                 ResultSet r = stmt.executeQuery(query);
                 while(r.next()){
-                    Monster tmp = new Monster(r.getString("id"), r.getString("name"), new Date(r.getLong("dob")*1000), new Date(r.getLong("dod")*1000), r.getDouble("base_strength"), r.getDouble("current_strength"), r.getDouble("base_defence"), r.getDouble("current_defence"), r.getDouble("base_health"), r.getDouble("current_health"), r.getFloat("fertility"), r.getString("user_id"), r.getInt("sale_offer"), r.getInt("breed_offer"));
+                    ArrayList<Enum<Tier>> tiers = new ArrayList<Enum<Tier>>();
+                    tiers.add(Tier.ONE);
+                    tiers.add(Tier.TWO);
+                    tiers.add(Tier.THREE);
+                    int index = (int)(Math.random() * 3);
+                    Monster tmp = MonsterFactory.getMonster(tiers.get(index), r.getString("id"), r.getString("name"), new Date(r.getLong("dob")*1000), new Date(r.getLong("dod")*1000), r.getDouble("base_strength"), r.getDouble("current_strength"), r.getDouble("base_defence"), r.getDouble("current_defence"), r.getDouble("base_health"), r.getDouble("current_health"), r.getFloat("fertility"), r.getString("user_id"), r.getInt("sale_offer"), r.getInt("breed_offer"));
                     tmp.setServerID(CONFIG.OUR_SERVER);
                     monsters.add(tmp);
                 }
@@ -652,7 +662,12 @@ public class PersistenceManager {
                 Statement stmt = connection.createStatement();
                 ResultSet r = stmt.executeQuery(query);
                 while(r.next()){
-                    Monster tmp = new Monster(r.getString("id"), r.getString("name"), new Date(r.getLong("dob")*1000), new Date(r.getLong("dod")*1000), r.getDouble("base_strength"), r.getDouble("current_strength"), r.getDouble("base_defence"), r.getDouble("current_defence"), r.getDouble("base_health"), r.getDouble("current_health"), r.getFloat("fertility"), r.getString("user_id"), r.getInt("sale_offer"), r.getInt("breed_offer"));
+                    ArrayList<Enum<Tier>> tiers = new ArrayList<Enum<Tier>>();
+                    tiers.add(Tier.ONE);
+                    tiers.add(Tier.TWO);
+                    tiers.add(Tier.THREE);
+                    int index = (int)(Math.random() * 3);
+                    Monster tmp = MonsterFactory.getMonster(tiers.get(index), r.getString("id"), r.getString("name"), new Date(r.getLong("dob")*1000), new Date(r.getLong("dod")*1000), r.getDouble("base_strength"), r.getDouble("current_strength"), r.getDouble("base_defence"), r.getDouble("current_defence"), r.getDouble("base_health"), r.getDouble("current_health"), r.getFloat("fertility"), r.getString("user_id"), r.getInt("sale_offer"), r.getInt("breed_offer"));
                     tmp.setServerID(CONFIG.OUR_SERVER);
                     monsters.add(tmp);
                 }
@@ -860,7 +875,12 @@ public class PersistenceManager {
                 if(this.getMonsterList(oldOwner).size() < 1){
                     // Old owner doesn't have any monsters
                     String name = NameGenerator.getName();
-                    exOwner.addMonster(new Monster(name, oldOwner));
+                    ArrayList<Enum<Tier>> tiers = new ArrayList<Enum<Tier>>();
+                    tiers.add(Tier.ONE);
+                    tiers.add(Tier.TWO);
+                    tiers.add(Tier.THREE);
+                    int index = (int)(Math.random() * 3);
+                    exOwner.addMonster(MonsterFactory.getMonster(tiers.get(index), name, oldOwner));
                     this.storeMonsters(exOwner);
                     exOwner.addNotification(new Notification("You run out of monsters.", "You run out of monsters. We have generated new monster for you: <b>"+name+"</b>.", exOwner));
                     this.storeNotifications(exOwner);
@@ -916,7 +936,12 @@ public class PersistenceManager {
                 Statement stmt = connection.createStatement();
                 ResultSet r = stmt.executeQuery("SELECT * FROM \"Monster\" WHERE \"id\" = '" + monsterID + "'");
                 r.next();
-                monster = new Monster(r.getString("id"),
+                ArrayList<Enum<Tier>> tiers = new ArrayList<Enum<Tier>>();
+                tiers.add(Tier.ONE);
+                tiers.add(Tier.TWO);
+                tiers.add(Tier.THREE);
+                int index = (int)(Math.random() * 3);
+                monster = MonsterFactory.getMonster(tiers.get(index), r.getString("id"),
                             r.getString("name"),
                             new java.util.Date(r.getLong("dob")),
                             new java.util.Date(r.getLong("dod")),
@@ -1028,7 +1053,12 @@ public class PersistenceManager {
             if(count < 1){
                 Player p = this.getPlayer(u);
                 String randomName = NameGenerator.getName();
-                p.addMonster(new Monster(randomName, u));
+                ArrayList<Enum<Tier>> tiers = new ArrayList<Enum<Tier>>();
+                tiers.add(Tier.ONE);
+                tiers.add(Tier.TWO);
+                tiers.add(Tier.THREE);
+                int index = (int)(Math.random() * 3);
+                p.addMonster(MonsterFactory.getMonster(tiers.get(index), randomName, u));
                 this.storeMonsters(p);
                 p.addNotification(new Notification("Your last monster dies.", "Your last monster has died. We generated for you new monster - meet <b>"+randomName+"</b>.", p));
                 this.storeNotifications(p);

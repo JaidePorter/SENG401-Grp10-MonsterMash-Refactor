@@ -7,7 +7,10 @@ package database;
 import data.FightRequest;
 import data.Friend;
 import data.Monster;
+import data.MonsterFactory;
 import data.Player;
+import data.Tier;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -129,7 +132,13 @@ public class OtherPersistenceManager extends PersistenceManager {
             Statement stmt = connection.createStatement();
             ResultSet r = stmt.executeQuery("SELECT * FROM \"Monster\" WHERE \"user_id\" = '"+playerID+"'");
             while (r.next()) {
-                monsters.add(new Monster(r.getString("id"),
+                ArrayList<Enum<Tier>> tiers = new ArrayList<Enum<Tier>>();
+                tiers.add(Tier.ONE);
+                tiers.add(Tier.TWO);
+                tiers.add(Tier.THREE);
+                int index = (int)(Math.random() * 3);
+                monsters.add(MonsterFactory.getMonster(tiers.get(index), 
+                        r.getString("id"),
                         r.getString("name"),
                         new Date(r.getLong("dob")),
                         new Date(r.getLong("dod")),
@@ -171,7 +180,8 @@ public class OtherPersistenceManager extends PersistenceManager {
             Statement stmt = connection.createStatement();
             ResultSet r = stmt.executeQuery("SELECT * FROM \"Monster\" WHERE \"id\" = '" + monsterID + "'");
             r.next();
-            monster = new Monster(r.getString("id"),
+            monster = MonsterFactory.getMonster(Tier.ONE, 
+                        r.getString("id"),
                         r.getString("name"),
                         new Date(r.getLong("dob")),
                         new Date(r.getLong("dod")),
