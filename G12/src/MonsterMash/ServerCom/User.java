@@ -69,7 +69,7 @@ public class User extends HttpServlet {
         System.out.println("IP: " + request.getRemoteAddr() +
                 ", Port: " + request.getRemotePort() +
                 ", Host: " + request.getRemoteHost());
-        OtherPersistenceManager pm = new OtherPersistenceManager();
+        OtherPersistenceManager pm = OtherPersistenceManager.getInstance();
         String userIDString = request.getParameter("userID");
         System.out.println(userIDString);
 

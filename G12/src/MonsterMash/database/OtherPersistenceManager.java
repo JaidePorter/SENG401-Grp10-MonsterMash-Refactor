@@ -33,8 +33,9 @@ public class OtherPersistenceManager extends PersistenceManager {
     private final String dbport = "1527";
     private Connection connection;
     private String error;
+    private static OtherPersistenceManager onlyInstance;
 
-    public OtherPersistenceManager() {
+    private OtherPersistenceManager() {
         String driver = "org.apache.derby.jdbc.EmbeddedDriver";
         String connectionURL = "jdbc:derby://" + dbhost + ":" + dbport + "/" + dbname + ";create=true;user=" + dbuser + ";password=" + dbpassword;
         try {
@@ -47,6 +48,12 @@ public class OtherPersistenceManager extends PersistenceManager {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    
+    public static OtherPersistenceManager getInstance() {
+    	if(onlyInstance == null)
+    		onlyInstance = new OtherPersistenceManager();
+    	return onlyInstance;
     }
 
     public void acceptFriendRequest(Friend friend) {

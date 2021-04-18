@@ -39,7 +39,7 @@ public class BreedServlet extends HttpServlet {
         String monsterID = encoder.encodeForSQL(new OracleCodec(), request.getParameter("monsterID"));
         
         if(monsterID != null) {
-            OtherPersistenceManager pm = new OtherPersistenceManager();
+            OtherPersistenceManager pm = OtherPersistenceManager.getInstance();
             Monster monster = pm.getMonster(monsterID);
             
             if(monster != null ){

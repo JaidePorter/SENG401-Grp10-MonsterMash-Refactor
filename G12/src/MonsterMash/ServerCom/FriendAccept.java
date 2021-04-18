@@ -39,7 +39,7 @@ public class FriendAccept extends HttpServlet {
         String friendID = encoder.encodeForSQL(new OracleCodec(), request.getParameter("friendID"));
         
         if(friendID != null) {
-            OtherPersistenceManager pm = new OtherPersistenceManager();
+            OtherPersistenceManager pm = OtherPersistenceManager.getInstance();
             Friend friend = pm.getFriend(friendID);
             
             if(friend != null) {

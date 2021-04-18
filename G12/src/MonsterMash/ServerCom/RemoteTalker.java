@@ -390,7 +390,7 @@ public class RemoteTalker {
         System.out.println("Getting findUser.");
         Player player = null;
 
-        OtherPersistenceManager pm = new OtherPersistenceManager();
+        OtherPersistenceManager pm = OtherPersistenceManager.getInstance();
         player = pm.getPlayer(userID);
         if (player != null) {
             player.setServerID(CONFIG.OUR_SERVER);
@@ -432,7 +432,7 @@ public class RemoteTalker {
         ArrayList<String> highscores = new ArrayList<String>();
         ArrayList<Player> players = new ArrayList<Player>();
         RemoteTalker rt = new RemoteTalker();
-        OtherPersistenceManager pm = new OtherPersistenceManager();
+        OtherPersistenceManager pm = OtherPersistenceManager.getInstance();
         ArrayList<Friend> friends = pm.getFriends(player);
 
         for (Friend friend : friends) {

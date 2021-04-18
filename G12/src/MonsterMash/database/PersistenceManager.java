@@ -28,8 +28,9 @@ public class PersistenceManager {
     private Connection connection;
     private String error;
     private RemoteTalker remote;
+    private static PersistenceManager onlyInstance;
     
-    public PersistenceManager(){
+    protected PersistenceManager(){
         remote = new RemoteTalker();
         String driver = "org.apache.derby.jdbc.EmbeddedDriver";
         String connectionURL = "jdbc:derby://"+dbhost+":"+dbport+"/"+dbname+";create=true;user="+dbuser+";password="+dbpassword;
@@ -43,6 +44,12 @@ public class PersistenceManager {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    
+    public static PersistenceManager getInstance() {
+    	if(onlyInstance == null)
+    		onlyInstance = new PersistenceManager();
+    	return onlyInstance;
     }
     
     /**

@@ -45,7 +45,7 @@ public class FightLost extends HttpServlet {
         String fightID = encoder.encodeForSQL(new OracleCodec(), request.getParameter("fightID"));
         
         if(fightID != null) {
-            OtherPersistenceManager pm = new OtherPersistenceManager();
+            OtherPersistenceManager pm = OtherPersistenceManager.getInstance();
             FightRequest fr = pm.getFightRequest(fightID);
             
             if(fr != null) {

@@ -120,7 +120,7 @@ public class Monsters extends HttpServlet {
     }// </editor-fold>
 
     public String usersMonsters(String userID, HttpServletResponse response) throws IOException {
-        OtherPersistenceManager pm = new OtherPersistenceManager();
+        OtherPersistenceManager pm = OtherPersistenceManager.getInstance();
         ArrayList<Monster> monsters = pm.getMonsterList(userID);
 
         if (monsters == null) {
@@ -133,7 +133,7 @@ public class Monsters extends HttpServlet {
     }
 
     public String singleMonster(String monsterID, HttpServletResponse response) throws IOException {
-        OtherPersistenceManager pm = new OtherPersistenceManager();
+        OtherPersistenceManager pm = OtherPersistenceManager.getInstance();
         Monster monster = pm.getMonster(monsterID);
 
         if (monster == null) {

@@ -51,7 +51,7 @@ public class FightRequestServlet extends HttpServlet {
         }
 
         if (fightID != null && recieverMonsterID != null && senderMonsterID != null) {
-            OtherPersistenceManager pm = new OtherPersistenceManager();
+            OtherPersistenceManager pm = OtherPersistenceManager.getInstance();
             Monster reciverMonster = pm.getMonster(recieverMonsterID);
             RemoteTalker rt = new RemoteTalker();
             //System.out.println(rt.getRemoteAddress(senderServerID));
